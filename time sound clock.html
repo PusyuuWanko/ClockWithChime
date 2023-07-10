@@ -48,7 +48,7 @@ function updateClockAndCalendar() {
   // 年と月を表示する部分を追加
   const yearMonthRow = document.createElement("tr");
   const yearMonthCell = document.createElement("td");
- yearMonthCell.classList.add("yearMonth");
+  yearMonthCell.classList.add("yearMonth");
   yearMonthCell.colSpan = 7;
   yearMonthCell.textContent = `${year}年${month}月`;
   yearMonthRow.appendChild(yearMonthCell);
@@ -134,11 +134,14 @@ body {
   color: #ff0000;
   cursor: pointer;
   border: 1px solid #fff;
-  padding: 5px;
-  padding-top: 8px;
+  padding: 5px 3px 5px;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   transition: all 0.2s;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  width: 25px;
 }
 #chime-toggle:active {
   background-color: rgba(225,225,225,0.7);
@@ -161,13 +164,8 @@ th, td {
 }
 
 th {
-  background-color: #fff;
+  background-color: rgba(225,225,225,0.5);
   color: #000fff;
-}
-
-td:hover {
-  color: #fff;
-  background-color: #333;
 }
 
 .current-date {
@@ -208,9 +206,9 @@ main {
 </style>
 <!--
   *----------------------------------
-  |  ThisPageVersion: 1.7         |
+  |  ThisPageVersion: 1.10.0      |
   |  © 2021-2023 By Pusyuu        |
-  |  LastUpdate: 2023-05-31       |
+  |  LastUpdate: 2023-06-30       |
   |  time denote display app      |
 ----------------------------------*
 -->
