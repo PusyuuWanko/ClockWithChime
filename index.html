@@ -126,7 +126,7 @@ body {
 }
 
 #clock {
-  color: #00ff00;
+  color: #80ff00;
   font-size: 50px;
   padding: 10px;
 }
@@ -161,7 +161,6 @@ th, td {
   border: 1px solid #fff;
   padding: 8px;
   text-align: center;
-  color: #fff000;
 }
 
 th {
@@ -170,16 +169,17 @@ th {
 }
 
 .current-date {
-  background-color: #333;
+  background-color: rgba(20,20,20,0.5);
   color: #fff;
 }
 
 main {
-  margin: 10px;
+  margin: 15px;
   margin-top: 40vh;
   margin-bottom: 40vh;
-  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .article {
@@ -188,9 +188,26 @@ main {
   padding: 25px;
 }
 
+@media (prefers-color-scheme: light) {
+  main {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  td {
+    color: #00aaff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  td {
+    color: #fff000;
+  }
+}
+
 @media only screen and (max-width: 750px) {
   #clock {
-    color: #41c6e0;
     font-size: 30px;
   }
 }
@@ -207,9 +224,9 @@ main {
 </style>
 <!--
   *----------------------------------
-  |  ThisPageVersion: 1.10.0      |
+  |  ThisPageVersion: 1.11.0      |
   |  © 2021-2023 By Pusyuu        |
-  |  LastUpdate: 2023-06-30       |
+  |  LastUpdate: 2023-10-03       |
   |  time denote display app      |
 ----------------------------------*
 -->
