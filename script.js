@@ -1,8 +1,8 @@
 /*****************************************
   *----------------------------------
-  |  ThisScriptVersion: 1.12.0    |
+  |  ThisScriptVersion: 1.13.1    |
   |  © 2021-2024 By PusyuuWanko/  |
-  |  LastUpdate: 2024-02-17       |
+  |  LastUpdate: 2024-03-23       |
   |  License: MITLicense          |
   |  ClockWithTimeSignal          |
 ----------------------------------*
@@ -88,12 +88,63 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   addPreloadedImages();
+  
+  const calendar = document.getElementById("calendar");  
+  let handMonth = 1;
+
+  function calendarHandle(month,tbody) {
+    calendar.textContent = "";
+    
+    const monthHandleRow = document.createElement("tr");
+    const monthHandleCell = document.createElement("td");
+    monthHandleCell.colSpan = 7;
+    const monthBtnWrap = document.createElement("div");
+    monthBtnWrap.classList.add("month_btn_wrap");
+
+    const negaMonthBtn = document.createElement("button");
+    negaMonthBtn.innerText = "前の月";
+    negaMonthBtn.addEventListener("click", function() {
+      if (month > 1) {
+        handMonth -= 1;
+      } else {
+        handMonth += 11;
+      }
+      updateClockAndCalendar();
+    });
+    monthBtnWrap.appendChild(negaMonthBtn);
+
+    const prevMonthBtn = document.createElement("button");
+    prevMonthBtn.innerText = "今日";
+    prevMonthBtn.addEventListener("click", function() {
+      handMonth = 1;
+      updateClockAndCalendar();
+    });
+    monthBtnWrap.appendChild(prevMonthBtn);
+
+    const posiMonthBtn = document.createElement("button");
+    posiMonthBtn.innerText = "次の月";
+    posiMonthBtn.addEventListener("click", function() {
+      if (month < 12) {
+        handMonth += 1;
+      } else {
+        handMonth -= 11;
+      }
+      updateClockAndCalendar();
+    });
+    monthBtnWrap.appendChild(posiMonthBtn);
+
+    monthHandleCell.appendChild(monthBtnWrap);
+    monthHandleRow.appendChild(monthHandleCell);
+    tbody.appendChild(monthHandleRow);
+  }
 
   function updateClockAndCalendar() {
+    calendar.textContent = "";
+    
     // 現在の時刻と日付を取得
     const now = new Date();
     const year = now.getFullYear();
-    const month = now.getMonth() + 1;
+    const month = now.getMonth() + handMonth;
     const day = now.getDate();
     const hour = now.getHours();
     const min = now.getMinutes();
@@ -105,16 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
       return number < 10 ? `0${number}` : number;
     }
 
-    // 時刻表示の要素を取得
-    const clock = document.getElementById("clock");
+    const clock = document.createElement("div");
+    clock.id = "clock";
     clock.textContent = formattedTime;
 
     playChime(hour, min, sec);
-
-    // カレンダー表示の要素を取得
-    const calendar = document.getElementById("calendar");
-
-    calendar.textContent = "";
 
     const table = document.createElement("table");
     const tbody = document.createElement("tbody");
@@ -129,6 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const firstDate = new Date(year, month - 1, 1);
     const lastDate = new Date(year, month, 0);
+
+    calendarHandle(month,tbody);
 
     // 年と月を表示する部分を追加
     const yearMonthRow = document.createElement("tr");

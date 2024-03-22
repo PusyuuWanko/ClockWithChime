@@ -1,8 +1,8 @@
 /*****************************************
   *----------------------------------
-  |  ThisStyleVersion: 1.12.3     |
+  |  ThisStyleVersion: 1.14.0     |
   |  © 2021-2024 By PusyuuWanko/  |
-  |  LastUpdate: 2024-02-17       |
+  |  LastUpdate: 2024-03-22       |
   |  License: MITLicense          |
   |  ClockWithTimeSignal          |
 ----------------------------------*
@@ -36,6 +36,21 @@ body {
 
 #chime-toggle:active {
   background-color: rgba(225, 225, 225, 0.7);
+}
+
+.month_btn_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+.month_btn_wrap > button {
+  background-color: rgba(255,255,255,0.0);
+  border-width: 0;
+  border: 1px solid #000;
+}
+.month_btn_wrap > button:active {
+  background-color: #ccc;
 }
 
 .yearMonth {
