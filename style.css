@@ -1,8 +1,8 @@
 /*****************************************
   *----------------------------------
-  |  ThisStyleVersion: 1.14.0     |
+  |  ThisStyleVersion: 1.14.1     |
   |  © 2021-2024 By PusyuuWanko/  |
-  |  LastUpdate: 2024-03-22       |
+  |  LastUpdate: 2024-03-23       |
   |  License: MITLicense          |
   |  ClockWithTimeSignal          |
 ----------------------------------*
@@ -45,9 +45,7 @@ body {
   gap: 5px;
 }
 .month_btn_wrap > button {
-  background-color: rgba(255,255,255,0.0);
   border-width: 0;
-  border: 1px solid #000;
 }
 .month_btn_wrap > button:active {
   background-color: #ccc;
@@ -209,11 +207,14 @@ main {
     background-color: #fff;
   }
 
-  td {
+  td,
+  .month_btn_wrap > button {
     color: #00aaff;
   }
   
-  th,td {
+  th,
+  td,
+  .month_btn_wrap > button {
     border: 1px solid #000;
   }
 }
@@ -223,11 +224,14 @@ main {
    background-color: #000;
   }
 
-  td {
+  td,
+  .month_btn_wrap > button {
     color: #fff000;
   }
   
-  th,td {
+  th,
+  td,
+  .month_btn_wrap > button {
     border: 1px solid #fff;
   }
 }
