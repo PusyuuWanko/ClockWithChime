@@ -1,6 +1,6 @@
 /*****************************************
   *----------------------------------
-  |  ThisStyleVersion: 1.14.1     |
+  |  ThisStyleVersion: 1.14.2     |
   |  © 2021-2024 By PusyuuWanko/  |
   |  LastUpdate: 2024-03-23       |
   |  License: MITLicense          |
@@ -46,6 +46,7 @@ body {
 }
 .month_btn_wrap > button {
   border-width: 0;
+  background: rgba(0,0,0,0.0);
 }
 .month_btn_wrap > button:active {
   background-color: #ccc;
