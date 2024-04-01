@@ -1,8 +1,8 @@
 /*****************************************
   *----------------------------------
-  |  ThisStyleVersion: 1.14.2     |
+  |  ThisStyleVersion: 1.14.3     |
   |  © 2021-2024 By PusyuuWanko/  |
-  |  LastUpdate: 2024-03-23       |
+  |  LastUpdate: 2024-04-01       |
   |  License: MITLicense          |
   |  ClockWithTimeSignal          |
 ----------------------------------*
@@ -11,6 +11,10 @@
 body {
   margin: 0;
   padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 #clock {
@@ -47,6 +51,7 @@ body {
 .month_btn_wrap > button {
   border-width: 0;
   background: rgba(0,0,0,0.0);
+  padding: 3px;
 }
 .month_btn_wrap > button:active {
   background-color: #ccc;
@@ -58,16 +63,16 @@ body {
 
 table {
   border-collapse: separate;
-  width: 100%;
-  letter-spacing: 5px;
+  width: 80vw;
+  letter-spacing: 3px;
 }
 
 th,
 td {
-  padding: 8px;
+  padding: 5px;
   text-align: center;
   backdrop-filter: blur(10px);
-  --webkit--backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 th {
@@ -84,9 +89,14 @@ td:hover {
 }
 
 main {
-  margin: 15px;
-  margin-top: 40vh;
-  margin-bottom: 40vh;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: auto;
+  height: 100vh;
+  height: 100dvh;
 }
 
 .article {
@@ -100,13 +110,13 @@ main {
   bottom: 10px;
   right: 10px;
   width: 100px;
-  height: 35px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(10, 255, 10, 0.7);
   border-radius: 50px;
-  padding: 10px;
+  padding: 20px;
   z-index: 1;
 }
 
@@ -128,7 +138,6 @@ main {
 
 .modal .modal_wrapper {
   position: fixed;
-  /*margin-left: 250px;*/
   animation: m-show 0.3s linear 0s;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
